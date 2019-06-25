@@ -4,7 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   title = 'message-generator';
@@ -16,20 +16,32 @@ export class AppComponent implements OnInit {
 
   async ngOnInit() { }
 
-  async getMessage(category) {
+  async getMessage(category: string) {
     this.category = category;
-    await this.getItems()
-    .subscribe(result => {
-      this.items = result
-      .map((x) => x.payload.doc.data())
-      .filter((item) => item['category'] === this.category);
+    this.items = [];
+    const docRef = this.db.collection('/messages',
+      ref => ref.where('category', '==', this.category)).snapshotChanges();
 
+    docRef.subscribe((doc) => {
+      const tmp = [];
+      doc.forEach((message) => {
+        tmp.push(message.payload.doc.data());
+      });
+      this.items.push(tmp[this.randomIndex(tmp.length)]);
       this.retrieved = true;
-      console.log(this.items);
     });
+  }
+
+  randomIndex(size: number) {
+    return Math.floor((Math.random() * size));
   }
 
   getItems() {
     return this.db.collection('messages').snapshotChanges();
+  }
+
+  reset() {
+    this.retrieved = false;
+    this.items = [];
   }
 }

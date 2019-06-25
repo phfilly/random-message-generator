@@ -37,6 +37,8 @@ import { MatGridListModule,
   MatExpansionModule
 } from '@angular/material';
 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -57,6 +59,7 @@ import { MatGridListModule,
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
+    MatProgressSpinnerModule,
     MatSortModule,
     MatInputModule,
     FormsModule,

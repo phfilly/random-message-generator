@@ -1,0 +1,58 @@
+.example-card {
+  max-width: 400px;
+  border: 1px solid #ddd;
+  margin: 10px;
+}
+
+.green {
+  background-color: greenyellow;
+}
+
+.red {
+  background-color: orangered;
+}
+
+.blue {
+  background-color: cornflowerblue;
+}
+
+.score {
+  margin: auto;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.reset-button {
+  background-color: lightgray;
+}
+
+.button {
+  margin: 10px;
+  min-width: 250px;
+}
+
+.container {
+  width: 100%;
+
+  div {
+    display: flex;
+    max-width: 1000px;
+    margin: auto;
+    justify-content: center;
+
+    .feedback {
+      max-width: 300px;
+      margin: auto;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    div {
+      flex-direction: column;
+    }
+  }
+}
