@@ -1,0 +1,19 @@
+.example-card {
+  max-width: 400px;
+}
+
+.primary {
+  background-color: greenyellow;
+}
+
+.warm {
+  background-color: orangered;
+}
+
+.cold {
+  background-color: cornflowerblue;
+}
+
+.button {
+  margin: 5px;
+}
