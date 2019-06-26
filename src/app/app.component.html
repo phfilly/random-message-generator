@@ -1,10 +1,10 @@
-<div class="container">
+<!-- <div class="container">
     <div>
       <button mat-raised-button class="blue button reset-button" (click)="reset()">Reset</button>
     </div>
-</div>
+</div> -->
 
-<div class="container">
+<div class="container" *ngIf="!retrieved">
   <div>
     <button mat-raised-button class="green button" (click)="getMessage('green')">Green</button>
     <button mat-raised-button class="red button" (click)="getMessage('red')">Red</button>
@@ -21,14 +21,19 @@
       <mat-card class="example-card">
         <mat-card-header>
           <mat-card-title>{{ message.category }}</mat-card-title>
+          <button mat-icon mat-button (click)="reset()" class="close-button">
+              <mat-icon>close</mat-icon>
+            </button>
         </mat-card-header>
         <mat-card-content>
           <p>
             {{ message.message }}
           </p>
         </mat-card-content>
-        <mat-card-subtitle class="score {{message.category}}">
-          {{ message.score }}
+        <mat-card-subtitle>
+            <mat-chip-list>
+              <mat-chip class='score {{message.category}}'>{{ message.score }}</mat-chip>
+            </mat-chip-list>
         </mat-card-subtitle>
       </mat-card>
     </ng-container>
