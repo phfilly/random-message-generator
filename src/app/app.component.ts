@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
       ref => ref.where('category', '==', this.category)).snapshotChanges();
 
     docRef.subscribe((doc) => {
+      this.items = [];
       const tmp = [];
       doc.forEach((message) => {
         tmp.push(message.payload.doc.data());
