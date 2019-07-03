@@ -38,10 +38,14 @@ import { MatGridListModule,
 } from '@angular/material';
 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { CardsComponent } from './cards/cards.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CardsComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,
